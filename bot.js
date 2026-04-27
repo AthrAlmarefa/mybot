@@ -15,6 +15,7 @@ const STEPS = [
 ];
 
 global.userState = global.userState || {};
+const processed = new Set();
 
 app.get('/webhook', (req, res) => {
   if (req.query['hub.verify_token'] === VERIFY_TOKEN)
@@ -28,7 +29,7 @@ app.post('/webhook', (req, res) => {
     body.entry.forEach(entry => {
       entry.messaging.forEach(event => {
         if (event.message && !event.message.is_echo) {
-          handleMessage(event.sender.id);
+          handleMessage(event.sender.id, event.message.mid);
         }
       });
     });
@@ -36,7 +37,9 @@ app.post('/webhook', (req, res) => {
   }
 });
 
-function handleMessage(userId) {
+function handleMessage(userId, messageId) {
+  if (processed.has(messageId)) return;
+  processed.add(messageId);
   if (global.userState[userId] >= STEPS.length) return;
   if (global.userState[userId] === undefined) global.userState[userId] = 0;
   const reply = STEPS[global.userState[userId]];

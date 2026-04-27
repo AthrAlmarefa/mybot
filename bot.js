@@ -4,7 +4,7 @@ const axios = require('axios');
 const app = express();
 app.use(bodyParser.json());
 
-const PAGE_ACCESS_TOKEN = 'EAAbUTdthNIgBRftY0seZC9lXINQNmikLKidVemKyx3lsfcklJSREzcRDRJuVxoCZBZCvGbhMP1QA4wtbMf3PcIf3mmQEOVgqdhSE0iiX3zmjKqLFg4yzQBkyd9UevW9H7GMZBCELZAuhQa4xV44dptXyEjUOgotShjGkCjmDJHodfVaRIupGyfsDj057ejPv0OkB0SAVD';
+const PAGE_ACCESS_TOKEN = 'EAAbUTdthNIgBRfIs0Kkd4GZBuEUX6Cv7E2F90sjxXZBTLuIKi0S4HlnkzR2Fm8b4G3lycZC7dRu76FNO2rkq1WZAjWmKDfnLjqfShoU5uoKqlZClSyigOeagGEoWB3L9xsGSMd86LOZBKtIc1QrUCrzkzfgunvsJappTWTpWwOX2nlsYSlXupbDZA4BrjitgGEBUDx4qiQU';
 const VERIFY_TOKEN = 'mybot2024';
 
 const STEPS = [
